@@ -162,17 +162,17 @@ var start_timestamp;
 if (!('webkitSpeechRecognition' in window)) {
   upgrade();
 } else {
+  alert("1");
   start_button.style.display = 'inline-block';
   var recognition = new webkitSpeechRecognition();
   recognition.continuous = false;
   recognition.interimResults = true;
 
   recognition.onstart = function() {
+    alert("2");
     recognizing = true;
     showInfo('info_speak_now');
     start_img.src = 'templates/static/images/mic-animate.gif';
-    
-
   };
 
   recognition.onerror = function(event) {
@@ -197,10 +197,7 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 
   recognition.onend = function() {
-    alert("ended");
-    if(final_span
     recognizing = false;
-    
     if (ignore_onend) {
       return;
     }
@@ -209,14 +206,12 @@ if (!('webkitSpeechRecognition' in window)) {
       showInfo('info_start');
       return;
     }
-    
     showInfo('');
     if (window.getSelection) {
       window.getSelection().removeAllRanges();
       var range = document.createRange();
       range.selectNode(document.getElementById('final_span'));
       window.getSelection().addRange(range);
-    
     }
     if (create_email) {
       create_email = false;
@@ -245,7 +240,6 @@ if (!('webkitSpeechRecognition' in window)) {
     if (final_transcript || interim_transcript) {
       showButtons('inline-block');
     }
-    
   };
 }
 
@@ -301,7 +295,6 @@ function emailButton() {
 function startButton(event) {
   if (recognizing) {
     recognition.stop();
-
     return;
   }
   final_transcript = '';
@@ -313,7 +306,6 @@ function startButton(event) {
   start_img.src = 'templates/static/images/mic.gif';
   showInfo('info_allow');
   showButtons('none');
-  start_timestamp = event.timeStamp;
 }
 
 function showInfo(s) {
@@ -338,7 +330,6 @@ function showButtons(style) {
   copy_button.style.display = style;
   email_button.style.display = style;
   copy_info.style.display = 'none';
-  email_info.style.display = 'none';
 }
     </script>
   </body>
