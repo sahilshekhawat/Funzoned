@@ -6,7 +6,7 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
     <link href="templates/static/css/chrome.min.css" rel="stylesheet">
     <link href="templates/static/css/index.css" rel = "stylesheet">
-    <script src="templates/staticjs/autotrack.js"></script>
+    <script src="templates/static/js/autotrack.js"></script>
     <script>
 new gweb.analytics.AutoTrack({
           profile: 'UA-26908291-1'
@@ -51,7 +51,7 @@ a.c1 {font-weight: normal;}
             </select>
         </div>
       </div>
-    </div><script src="/static/js/chrome.min.js">
+    </div><script src="templates/static/js/chrome.min.js">
 </script> <script>
 var chrmMenuBar = new chrm.ui.MenuBar();
       chrmMenuBar.decorate('nav');
@@ -164,7 +164,7 @@ if (!('webkitSpeechRecognition' in window)) {
 } else {
   start_button.style.display = 'inline-block';
   var recognition = new webkitSpeechRecognition();
-  recognition.continuous = true;
+  recognition.continuous = false;
   recognition.interimResults = true;
 
   recognition.onstart = function() {
