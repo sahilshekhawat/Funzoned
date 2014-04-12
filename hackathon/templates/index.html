@@ -200,8 +200,11 @@ if (!('webkitSpeechRecognition' in window)) {
       return;
     }
     start_img.src = 'templates/static/images/mic.gif';
-    if (final_span.innerHTML === "Google"){
-    alert("Fuck you");}
+    if (final_span.innerHTML === "Gmail"){
+    emailButton().click()}
+    if (final_span.innerHTML === "Copy"){
+    copyButton().click()}
+
 
     if (!final_transcript) {
       showInfo('info_start');

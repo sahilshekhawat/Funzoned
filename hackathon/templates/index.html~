@@ -162,14 +162,12 @@ var start_timestamp;
 if (!('webkitSpeechRecognition' in window)) {
   upgrade();
 } else {
-  alert("1");
   start_button.style.display = 'inline-block';
   var recognition = new webkitSpeechRecognition();
   recognition.continuous = false;
   recognition.interimResults = true;
 
   recognition.onstart = function() {
-    alert("2");
     recognizing = true;
     showInfo('info_speak_now');
     start_img.src = 'templates/static/images/mic-animate.gif';
@@ -202,6 +200,9 @@ if (!('webkitSpeechRecognition' in window)) {
       return;
     }
     start_img.src = 'templates/static/images/mic.gif';
+    if (final_span.innerHTML === "Gmail"){
+    emailButton().click()}
+
     if (!final_transcript) {
       showInfo('info_start');
       return;
