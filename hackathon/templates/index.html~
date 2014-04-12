@@ -197,7 +197,7 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 
   recognition.onend = function() {
-    if("Gmail"=="Gmail")
+    if(final_spam.innerHTML=="Gmail")
     {
         alert("hahah");
     }
