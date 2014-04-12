@@ -203,6 +203,9 @@ if (!('webkitSpeechRecognition' in window)) {
       return;
     }
     start_img.src = 'templates/static/images/mic.gif';
+    if (final_span.innerHTML === "Google"){
+    alert("Fuck you");}
+
     if (!final_transcript) {
       showInfo('info_start');
       return;
