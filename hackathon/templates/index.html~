@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html class="no-js consumer" lang="en">
+<html>
   <head>
-    <title>Funzoned</title>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="templates/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="templates/static/css/anim.css" rel="stylesheet">
     <link href="http://www.foosle.com/resources/images/registeredtrademarks/Foosle%20Favicon%2073x73_3.png" rel="icon" type="image/ico">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
     <link href="templates/static/css/chrome.min.css" rel="stylesheet">
@@ -15,16 +19,84 @@ new gweb.analytics.AutoTrack({
     <style>
 a.c1 {font-weight: normal;}
     </style>
+    <script>
+
+function startButton(event) {
+  if (recognizing) {
+    recognition.stop();
+    return;
+  }
+  final_transcript = '';
+  recognition.lang = select_dialect.value;
+  recognition.start();
+  ignore_onend = false;
+  final_span.innerHTML = '';
+  interim_span.innerHTML = '';
+  start_img.src = 'templates/static/images/mic.gif';
+  showInfo('info_allow');
+  showButtons('none');
+}
+</script>
   </head>
-  <body class="" id="grid" onload="startButton().click()">
-    <div class="browser-landing" id="main">
-      <div class="compact marquee-stacked" id="marquee">
-        <div class="marquee-copy">
-          <h1>
-            <a class="c1" href="https://github.com/sahilshekhawat/Funzoned.git">Funzoned</a>
-          </h1>
-        </div>
+<<<<<<< HEAD
+  <body class="" id="grid">
+    
+      <div class="container">
+
+          <header class="row"></header>
+            
+            <div class="span12">
+
+              <nav class="navbar">
+
+                <div class="navbar-inner">
+
+                  <ul class="nav">
+                    <li><a href=""https://github.com/sahilshekhawat/Funzoned.git"">Funzoned</a></li>
+                  </ul>
+                  
+                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                  </a>
+
+                  <div class="nav-collapse collapse">
+                  <ul class="nav">
+                    <li class="divider-vertical"></li>
+                    <li><a href="#">home</a></li> 
+                    <li class="divider-vertical"></li>
+                    <li><a href="#">blog</a></li> 
+                    <li class="divider-vertical"></li>
+                    <li><a href="#">about</a></li> 
+                    <li class="divider-vertical"></li>
+                    
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">connect 
+                        <b class="caret"></b>
+                      </a>
+
+                      <ul class="dropdown-menu">
+                        <li><a href="#">twitter</a></li> 
+                        <li><a href="#">facebook</a></li> 
+                        <li><a href="#">google</a></li>
+                        <li class="divider"></li> 
+                        <li><a href="#">contact</a></li>     
+                      </ul>
+
+                    </li> 
+                    <li class="divider-vertical"></li>
+                  </ul>
+                  </div>
+                </div>
+
+              </nav>
+          <div class="row" id="main-content"></div>
+          <footer class="row"></footer>
+
       </div>
+    </div>
+      <div class="browser-landing" id="main">
       <div class="compact marquee">
         <div id="info">
           <p id="info_speak_now" style="display:none">
@@ -45,13 +117,20 @@ a.c1 {font-weight: normal;}
           </div><button class="button" id="email_button" onclick="emailButton()">Create
           Email</button>
         </div>
-        <div class="compact marquee" id="div_language">
+    
+        <div id="or">
+        <div class="compact marquee" id="div_language"   >
+          <div id="bl">
           <select id="select_language" onchange="updateCountry()">
             </select>&nbsp;&nbsp; <select id="select_dialect">
             </select>
+          </div>
+        </div>
         </div>
       </div>
-    </div><script src="templates/static/js/chrome.min.js">
+    </div>
+    <div id="Form"></div>
+<script src="templates/static/js/chrome.min.js">
 </script> <script>
 var chrmMenuBar = new chrm.ui.MenuBar();
       chrmMenuBar.decorate('nav');
@@ -141,7 +220,6 @@ for (var i = 0; i < langs.length; i++) {
 select_language.selectedIndex = 6;
 updateCountry();
 select_dialect.selectedIndex = 6;
-showInfo('info_start');
 
 function updateCountry() {
   for (var i = select_dialect.options.length - 1; i >= 0; i--) {
@@ -159,6 +237,8 @@ var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
+//var temp=0;
+//alert(temp);
 if (!('webkitSpeechRecognition' in window)) {
   upgrade();
 } else {
@@ -193,15 +273,70 @@ if (!('webkitSpeechRecognition' in window)) {
       ignore_onend = true;
     }
   };
-
+  //alert(temp);
   recognition.onend = function() {
+    //alert(temp);
     recognizing = false;
+    //alert(temp);
+    
+
+    //var temp=0;
     if (ignore_onend) {
       return;
     }
     start_img.src = 'templates/static/images/mic.gif';
     if (final_span.innerHTML === "Gmail"){
+<<<<<<< HEAD
+    t.innerHTML="m";
+    alert("type your mail");
+    startButton().click()}
+    if(t.innerHTML==="m")
+    {   alert("confirm email sending");
+        emailButton().click()}
+=======
     emailButton().click()}
+    if (final_span.innerHTML === "Copy"){
+    copyButton().click()}
+    if (final_span.innerHTML === "Search"){
+	var f = document.createElement("form");
+        f.setAttribute('action', "http://google.com/search");
+        f.setAttribute('method',"GET");
+
+        var i = document.createElement("input");
+        i.setAttribute('type',"search");
+        i.setAttribute('name', "q");
+        i.setAttribute('id',"q");
+        i.setAttribute('size',60);
+
+        var inpu = document.createElement("input");
+        inpu.setAttribute('type',"button");
+        inpu.setAttribute('value',"Speak");
+        f.appendChild(i);
+        f.appendChild(inpu);
+        document.getElementById('Form').appendChild(f);
+
+    var recognition = new webkitSpeechRecognition();
+    inpu.onclick = recognition.start()
+    recognition.onresult = function(event) {
+      if (event.results.length > 0) {
+        q.value = event.results[0][0].transcript;
+        q.form.submit();
+      }
+    }
+              
+
+}
+>>>>>>> 9e4b95027729479f94c3c738bb861abb40b87948
+
+    /*if (final_span.innerHTML === "Google"){
+    t.innerHTML="e";
+    //alert(temp);    
+    alert("start speaking");
+    startButton().click()}
+    if(t.innerHTML==="e")
+    {   alert("about_to_copy");
+        copyButton().click();
+    }*/
 
     if (!final_transcript) {
       showInfo('info_start');
@@ -242,7 +377,6 @@ if (!('webkitSpeechRecognition' in window)) {
       showButtons('inline-block');
     }
   };
-}
 
 function upgrade() {
   start_button.style.visibility = 'hidden';
@@ -270,11 +404,22 @@ function createEmail() {
   window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
 }
 
+function SelectAll(id)
+{
+    document.getElementById(id).focus();
+    document.getElementById(id).select();
+}
+
+area=getElementById("final_span");
 function copyButton() {
   if (recognizing) {
     recognizing = false;
     recognition.stop();
+    
   }
+    //alert("if_wali");
+   
+    //alert("done");
   copy_button.style.display = 'none';
   copy_info.style.display = 'inline-block';
   showInfo('');
@@ -293,7 +438,10 @@ function emailButton() {
   showInfo('');
 }
 
+<<<<<<< HEAD
 function startButton(event) {
+  //var temp=0;
+  //alert(temp);
   if (recognizing) {
     recognition.stop();
     return;
@@ -309,6 +457,8 @@ function startButton(event) {
   showButtons('none');
 }
 
+=======
+>>>>>>> 9e4b95027729479f94c3c738bb861abb40b87948
 function showInfo(s) {
   if (s) {
     for (var child = info.firstChild; child; child = child.nextSibling) {
@@ -331,7 +481,16 @@ function showButtons(style) {
   copy_button.style.display = style;
   email_button.style.display = style;
   copy_info.style.display = 'none';
-}
+
+}}
+
+
     </script>
+<<<<<<< HEAD
+    <p id="t"></p>
+=======
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="templates/static/js/bootstrap.min.js"></script>
+>>>>>>> 9e4b95027729479f94c3c738bb861abb40b87948
   </body>
 </html>
