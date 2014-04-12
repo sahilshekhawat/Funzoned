@@ -38,8 +38,7 @@ function startButton(event) {
 }
 </script>
   </head>
-<<<<<<< HEAD
-  <body class="" id="grid">
+  <body class="" id="grid" onload="startButton().click()">
     
       <div class="container">
 
@@ -286,6 +285,8 @@ if (!('webkitSpeechRecognition' in window)) {
 	var f = document.createElement("form");
         f.setAttribute('action', "http://google.com/search");
         f.setAttribute('method',"GET");
+        f.setAttribute('style',"margin:40px 0px 30px 550px;");
+
 
         var i = document.createElement("input");
         i.setAttribute('type',"search");
@@ -296,6 +297,7 @@ if (!('webkitSpeechRecognition' in window)) {
         var inpu = document.createElement("input");
         inpu.setAttribute('type',"button");
         inpu.setAttribute('value',"Speak");
+        inpu.setAttribute('type',"hidden");
         f.appendChild(i);
         f.appendChild(inpu);
         document.getElementById('Form').appendChild(f);
