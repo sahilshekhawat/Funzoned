@@ -159,6 +159,8 @@ var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
+//var temp=0;
+//alert(temp);
 if (!('webkitSpeechRecognition' in window)) {
   upgrade();
 } else {
@@ -193,15 +195,35 @@ if (!('webkitSpeechRecognition' in window)) {
       ignore_onend = true;
     }
   };
-
+  //alert(temp);
   recognition.onend = function() {
+    //alert(temp);
     recognizing = false;
+    //alert(temp);
+    
+
+    //var temp=0;
     if (ignore_onend) {
       return;
     }
     start_img.src = 'templates/static/images/mic.gif';
     if (final_span.innerHTML === "Gmail"){
-    emailButton().click()}
+    t.innerHTML="m";
+    alert("type your mail");
+    startButton().click()}
+    if(t.innerHTML==="m")
+    {   alert("confirm email sending");
+        emailButton().click()}
+
+    /*if (final_span.innerHTML === "Google"){
+    t.innerHTML="e";
+    //alert(temp);    
+    alert("start speaking");
+    startButton().click()}
+    if(t.innerHTML==="e")
+    {   alert("about_to_copy");
+        copyButton().click();
+    }*/
 
     if (!final_transcript) {
       showInfo('info_start');
@@ -270,11 +292,22 @@ function createEmail() {
   window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
 }
 
+function SelectAll(id)
+{
+    document.getElementById(id).focus();
+    document.getElementById(id).select();
+}
+
+area=getElementById("final_span");
 function copyButton() {
   if (recognizing) {
     recognizing = false;
     recognition.stop();
+    
   }
+    //alert("if_wali");
+   
+    //alert("done");
   copy_button.style.display = 'none';
   copy_info.style.display = 'inline-block';
   showInfo('');
@@ -294,6 +327,8 @@ function emailButton() {
 }
 
 function startButton(event) {
+  //var temp=0;
+  //alert(temp);
   if (recognizing) {
     recognition.stop();
     return;
@@ -333,5 +368,6 @@ function showButtons(style) {
   copy_info.style.display = 'none';
 }
     </script>
+    <p id="t"></p>
   </body>
 </html>
