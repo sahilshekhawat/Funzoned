@@ -304,7 +304,6 @@ function startButton(event) {
   start_img.src = 'templates/static/images/mic.gif';
   showInfo('info_allow');
   showButtons('none');
-  start_timestamp = event.timeStamp;
 }
 
 function showInfo(s) {
@@ -329,7 +328,6 @@ function showButtons(style) {
   copy_button.style.display = style;
   email_button.style.display = style;
   copy_info.style.display = 'none';
-  email_info.style.display = 'none';
 }
     </script>
   </body>
