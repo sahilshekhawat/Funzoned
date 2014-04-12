@@ -16,7 +16,7 @@ new gweb.analytics.AutoTrack({
 a.c1 {font-weight: normal;}
     </style>
   </head>
-  <body class="" id="grid" onload="startButton().click()">
+  <body class="" id="grid">
     <div class="browser-landing" id="main">
       <div class="compact marquee-stacked" id="marquee">
         <div class="marquee-copy">
@@ -171,8 +171,6 @@ if (!('webkitSpeechRecognition' in window)) {
     recognizing = true;
     showInfo('info_speak_now');
     start_img.src = 'templates/static/images/mic-animate.gif';
-    
-
   };
 
   recognition.onerror = function(event) {
@@ -197,13 +195,7 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 
   recognition.onend = function() {
-    alert("ended"):
-    if(final_spam.innerHTML=="Gmail")
-    {
-        alert("hahah");
-    }
     recognizing = false;
-    
     if (ignore_onend) {
       return;
     }
@@ -212,14 +204,12 @@ if (!('webkitSpeechRecognition' in window)) {
       showInfo('info_start');
       return;
     }
-    
     showInfo('');
     if (window.getSelection) {
       window.getSelection().removeAllRanges();
       var range = document.createRange();
       range.selectNode(document.getElementById('final_span'));
       window.getSelection().addRange(range);
-    
     }
     if (create_email) {
       create_email = false;
@@ -248,7 +238,6 @@ if (!('webkitSpeechRecognition' in window)) {
     if (final_transcript || interim_transcript) {
       showButtons('inline-block');
     }
-    
   };
 }
 
@@ -304,7 +293,6 @@ function emailButton() {
 function startButton(event) {
   if (recognizing) {
     recognition.stop();
-
     return;
   }
   final_transcript = '';

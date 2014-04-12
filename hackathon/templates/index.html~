@@ -197,10 +197,8 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 
   recognition.onend = function() {
-    if(final_spam.innerHTML=="Gmail")
-    {
-        alert("hahah");
-    }
+    alert("ended");
+    if(final_span
     recognizing = false;
     
     if (ignore_onend) {
