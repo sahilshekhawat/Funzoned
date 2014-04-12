@@ -19,7 +19,26 @@ new gweb.analytics.AutoTrack({
     <style>
 a.c1 {font-weight: normal;}
     </style>
+    <script>
+
+function startButton(event) {
+  if (recognizing) {
+    recognition.stop();
+    return;
+  }
+  final_transcript = '';
+  recognition.lang = select_dialect.value;
+  recognition.start();
+  ignore_onend = false;
+  final_span.innerHTML = '';
+  interim_span.innerHTML = '';
+  start_img.src = 'templates/static/images/mic.gif';
+  showInfo('info_allow');
+  showButtons('none');
+}
+</script>
   </head>
+<<<<<<< HEAD
   <body class="" id="grid">
     
       <div class="container">
@@ -74,9 +93,9 @@ a.c1 {font-weight: normal;}
               </nav>
           <div class="row" id="main-content"></div>
           <footer class="row"></footer>
+
       </div>
     </div>
-      <!--sAHIL !-->
       <div class="browser-landing" id="main">
       <div class="compact marquee">
         <div id="info">
@@ -109,7 +128,9 @@ a.c1 {font-weight: normal;}
         </div>
         </div>
       </div>
-    </div><script src="/static/js/chrome.min.js">
+    </div>
+    <div id="Form"></div>
+<script src="templates/static/js/chrome.min.js">
 </script> <script>
 var chrmMenuBar = new chrm.ui.MenuBar();
       chrmMenuBar.decorate('nav');
@@ -199,7 +220,6 @@ for (var i = 0; i < langs.length; i++) {
 select_language.selectedIndex = 6;
 updateCountry();
 select_dialect.selectedIndex = 6;
-showInfo('info_start');
 
 function updateCountry() {
   for (var i = select_dialect.options.length - 1; i >= 0; i--) {
@@ -222,7 +242,7 @@ if (!('webkitSpeechRecognition' in window)) {
 } else {
   start_button.style.display = 'inline-block';
   var recognition = new webkitSpeechRecognition();
-  recognition.continuous = true;
+  recognition.continuous = false;
   recognition.interimResults = true;
 
   recognition.onstart = function() {
@@ -258,6 +278,41 @@ if (!('webkitSpeechRecognition' in window)) {
       return;
     }
     start_img.src = 'templates/static/images/mic.gif';
+    if (final_span.innerHTML === "Gmail"){
+    emailButton().click()}
+    if (final_span.innerHTML === "Copy"){
+    copyButton().click()}
+    if (final_span.innerHTML === "Search"){
+	var f = document.createElement("form");
+        f.setAttribute('action', "http://google.com/search");
+        f.setAttribute('method',"GET");
+
+        var i = document.createElement("input");
+        i.setAttribute('type',"search");
+        i.setAttribute('name', "q");
+        i.setAttribute('id',"q");
+        i.setAttribute('size',60);
+
+        var inpu = document.createElement("input");
+        inpu.setAttribute('type',"button");
+        inpu.setAttribute('value',"Speak");
+        f.appendChild(i);
+        f.appendChild(inpu);
+        document.getElementById('Form').appendChild(f);
+
+    var recognition = new webkitSpeechRecognition();
+    inpu.onclick = recognition.start()
+    recognition.onresult = function(event) {
+      if (event.results.length > 0) {
+        q.value = event.results[0][0].transcript;
+        q.form.submit();
+      }
+    }
+              
+
+}
+
+
     if (!final_transcript) {
       showInfo('info_start');
       return;
@@ -297,7 +352,6 @@ if (!('webkitSpeechRecognition' in window)) {
       showButtons('inline-block');
     }
   };
-}
 
 function upgrade() {
   start_button.style.visibility = 'hidden';
@@ -348,23 +402,6 @@ function emailButton() {
   showInfo('');
 }
 
-function startButton(event) {
-  if (recognizing) {
-    recognition.stop();
-    return;
-  }
-  final_transcript = '';
-  recognition.lang = select_dialect.value;
-  recognition.start();
-  ignore_onend = false;
-  final_span.innerHTML = '';
-  interim_span.innerHTML = '';
-  start_img.src = 'templates/static/images/mic.gif';
-  showInfo('info_allow');
-  showButtons('none');
-  start_timestamp = event.timeStamp;
-}
-
 function showInfo(s) {
   if (s) {
     for (var child = info.firstChild; child; child = child.nextSibling) {
@@ -387,8 +424,10 @@ function showButtons(style) {
   copy_button.style.display = style;
   email_button.style.display = style;
   copy_info.style.display = 'none';
-  email_info.style.display = 'none';
-}
+
+}}
+
+
     </script>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="templates/static/js/bootstrap.min.js"></script>
