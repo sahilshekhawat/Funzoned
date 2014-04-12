@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html class="no-js consumer" lang="en">
+<html>
   <head>
-    <title>Funzoned</title>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="templates/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="templates/static/css/anim.css" rel="stylesheet">
     <link href="http://www.foosle.com/resources/images/registeredtrademarks/Foosle%20Favicon%2073x73_3.png" rel="icon" type="image/ico">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
     <link href="templates/static/css/chrome.min.css" rel="stylesheet">
     <link href="templates/static/css/index.css" rel = "stylesheet">
-    <script src="templates/staticjs/autotrack.js"></script>
+    <script src="templates/static/js/autotrack.js"></script>
     <script>
 new gweb.analytics.AutoTrack({
           profile: 'UA-26908291-1'
@@ -17,14 +21,63 @@ a.c1 {font-weight: normal;}
     </style>
   </head>
   <body class="" id="grid">
-    <div class="browser-landing" id="main">
-      <div class="compact marquee-stacked" id="marquee">
-        <div class="marquee-copy">
-          <h1>
-            <a class="c1" href="https://github.com/sahilshekhawat/Funzoned.git">Funzoned</a>
-          </h1>
-        </div>
+    
+      <div class="container">
+
+          <header class="row"></header>
+            
+            <div class="span12">
+
+              <nav class="navbar">
+
+                <div class="navbar-inner">
+
+                  <ul class="nav">
+                    <li><a href=""https://github.com/sahilshekhawat/Funzoned.git"">Funzoned</a></li>
+                  </ul>
+                  
+                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                  </a>
+
+                  <div class="nav-collapse collapse">
+                  <ul class="nav">
+                    <li class="divider-vertical"></li>
+                    <li><a href="#">home</a></li> 
+                    <li class="divider-vertical"></li>
+                    <li><a href="#">blog</a></li> 
+                    <li class="divider-vertical"></li>
+                    <li><a href="#">about</a></li> 
+                    <li class="divider-vertical"></li>
+                    
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">connect 
+                        <b class="caret"></b>
+                      </a>
+
+                      <ul class="dropdown-menu">
+                        <li><a href="#">twitter</a></li> 
+                        <li><a href="#">facebook</a></li> 
+                        <li><a href="#">google</a></li>
+                        <li class="divider"></li> 
+                        <li><a href="#">contact</a></li>     
+                      </ul>
+
+                    </li> 
+                    <li class="divider-vertical"></li>
+                  </ul>
+                  </div>
+                </div>
+
+              </nav>
+          <div class="row" id="main-content"></div>
+          <footer class="row"></footer>
       </div>
+    </div>
+      <!--sAHIL !-->
+      <div class="browser-landing" id="main">
       <div class="compact marquee">
         <div id="info">
           <p id="info_speak_now" style="display:none">
@@ -45,10 +98,15 @@ a.c1 {font-weight: normal;}
           </div><button class="button" id="email_button" onclick="emailButton()">Create
           Email</button>
         </div>
-        <div class="compact marquee" id="div_language">
+    
+        <div id="or">
+        <div class="compact marquee" id="div_language"   >
+          <div id="bl">
           <select id="select_language" onchange="updateCountry()">
             </select>&nbsp;&nbsp; <select id="select_dialect">
             </select>
+          </div>
+        </div>
         </div>
       </div>
     </div><script src="/static/js/chrome.min.js">
@@ -332,5 +390,7 @@ function showButtons(style) {
   email_info.style.display = 'none';
 }
     </script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="templates/static/js/bootstrap.min.js"></script>
   </body>
 </html>
